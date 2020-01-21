@@ -16,10 +16,18 @@ typedef struct islands_list {
 } islands;
 
 int mx_get_char_index(const char *str, char c);
+void mx_del_strarr(char ***arr);
 void mx_printint(int n);
+void mx_strdel(char **str);
 void mx_printchar(char c);
 int mx_strlen(const char *s);
+void mx_printstr(const char *s);
+char *mx_strcpy(char *dst, const char *src);
+char *mx_strdup(const char *str);
+void mx_path_check_for_format_s(char *island_str, int counter);
 void mx_str_reverse(char *s);
+void mx_printchar_errore(char c);
+void mx_printint_errore(int n);
 char *mx_strnew(const int size);
 void *mx_realloc(void *ptr, size_t size);
 int mx_str_to_digits(char *str_of_digits);
@@ -29,6 +37,7 @@ void mx_printstr_errore_type(const char *s);
 void *mx_memmove(void *dest, const void *src, size_t len);
 void mx_path_errore_file(int num_of_par, char **par, int *count, islands *island_par);
 void *mx_memcpy(void *restrict dst, const void *restrict src, size_t n);
+void mx_print_strarr(char **arr, const char *delim);
 void mx_path_errore_content(int open_file, char *file_name, int *count, islands *island_par);
 
 bool mx_help_count_border(char *s, char c, char **start, char **end);

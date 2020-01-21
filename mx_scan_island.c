@@ -4,22 +4,24 @@ static char *mx_scan_island(int par_for_check);
 
 char **mx_scan_islands(int par_for_check, islands *island_par) {
     char *island = NULL;
-    char **splited_island = NULL;
+    char **splited_island_1 = NULL;
+    char **splited_island_2 = NULL;
+    int counter = 2;
 
     island = mx_scan_island(par_for_check);
-    //mx_printstr_errore_type(island);
     while (island != NULL) {
-        splited_island = mx_strsplit(island, '-');
-        island_par -> island_1 = splited_island[0];
-        splited_island = mx_strsplit(splited_island[1], ',');
-        island_par -> island_2 = splited_island[0];
-        mx_printstr_errore_type(island_par -> island_1);
-        mx_printstr_errore_type(island_par -> island_2);
+        splited_island_1 = mx_strsplit(island, '-');
+        mx_path_check_for_format_s(splited_island_1[0], counter);
+        island_par->island_1 = mx_strdup(splited_island_1[0]);
+        splited_island_2 = mx_strsplit(splited_island_1[1], ',');
+        mx_del_strarr(&splited_island_1);
+        mx_path_check_for_format_s(splited_island_2[0], counter);
+        island_par->island_2 = mx_strdup(splited_island_2[0]);
+        mx_del_strarr(&splited_island_2);
+        mx_strdel(&island);
         island = mx_scan_island(par_for_check);
-        
+        counter++;
     } 
-    
-  
     return NULL;
 }
 

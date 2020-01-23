@@ -2,12 +2,12 @@
 
 static int check_for_empty(int par_for_check_1, char *file_name);
 static int check_for_digits(int par_for_check_1, char *buffer);
-static void check_for_format(int par_for_chek_2, islands *island_par);
 
-void mx_path_errore_content(int open_file, char *file_name, int *count, islands *island_par) {
+int mx_path_errore_content(int open_file, char *file_name, int *count, t_islands *island_par) {
     int digit = check_for_empty(open_file, file_name);
+ 
     *count = digit;
-    check_for_format(open_file, island_par);
+    return mx_scan_islands(open_file, island_par);
 }
 
 static int check_for_empty(int par_for_check_1, char *file_name) {
@@ -41,8 +41,4 @@ static int check_for_digits(int par_for_check_1, char *buffer) {
     }
     buffer[i] = '\0';
     return  mx_str_to_digits(buffer);
-}
-
-static void check_for_format(int par_for_chek_2, islands *island_par) {
-    mx_scan_islands(par_for_chek_2, island_par);   
 }

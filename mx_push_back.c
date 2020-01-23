@@ -14,4 +14,5 @@ void mx_push_back(t_islands **list, char *island_1, char *island_2, int distance
             l = l->next;
         l->next = node;
     }
+    l = NULL;
 }

@@ -1,2 +1,5 @@
-3
-sdfdsf-dsfdsf,4545
+4
+A-B,1
+a-B,1
+D-B,1
+D-C,1

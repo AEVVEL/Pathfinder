@@ -10,18 +10,20 @@ char **mx_scan_islands(int par_for_check, islands *island_par) {
 
     island = mx_scan_island(par_for_check);
     while (island != NULL) {
+        mx_path_check_for_format_s(island, counter);
         splited_island_1 = mx_strsplit(island, '-');
-        mx_path_check_for_format_s(splited_island_1[0], counter);
+        mx_path_check_for_format_c(splited_island_1[0], counter);
         island_par->island_1 = mx_strdup(splited_island_1[0]);
         splited_island_2 = mx_strsplit(splited_island_1[1], ',');
         mx_del_strarr(&splited_island_1);
-        mx_path_check_for_format_s(splited_island_2[0], counter);
+        mx_path_check_for_format_c(splited_island_2[0], counter);
+        mx_path_check_for_format_d(splited_island_2[1], counter);
         island_par->island_2 = mx_strdup(splited_island_2[0]);
         mx_del_strarr(&splited_island_2);
         mx_strdel(&island);
         island = mx_scan_island(par_for_check);
         counter++;
-    } 
+    }
     return NULL;
 }
 
